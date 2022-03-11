@@ -30,7 +30,7 @@ public class Main {
         // Criar Lista de Itens para transferir
         HashMap<Inventory.Items, Integer> itemsToSend = new HashMap<>();
         itemsToSend.put(Inventory.Items.GUN, 1);
-        itemsToSend.put(Inventory.Items.AMMUNITION, 5);
+        itemsToSend.put(Inventory.Items.WATER, 4);
 
         // Antes de negociar
         System.out.println(rebel1);
@@ -40,11 +40,11 @@ public class Main {
         rebel1.negotiate(rebel2, itemsToReceive, itemsToSend);
 
         // Testes
-        rebel1.markAsTraitor();
-        rebel2.markAsTraitor();
-        rebel2.markAsTraitor();
-        rebel2.markAsTraitor();
-        rebel1.updateLocation("Russia");
+//        rebel1.markAsTraitor();
+//        rebel2.markAsTraitor();
+//        rebel2.markAsTraitor();
+//        rebel2.markAsTraitor();
+//        rebel1.updateLocation("Russia");
 
         System.out.println();
 
