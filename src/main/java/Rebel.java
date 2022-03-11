@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
 public class Rebel {
-    private String name;
-    private String age;
-    private String gender;
+    private final String name;
+    private final String age;
+    private final String gender;
     private String location;
     private final Inventory inventory;
     private Boolean isTraitor = false;
@@ -31,7 +31,7 @@ public class Rebel {
     }
 
     public void negotiate(Rebel target, HashMap<Inventory.Items, Integer> itemsToReceive, HashMap<Inventory.Items, Integer> itemsToSend) {
-        if (isTraitor) {
+        if (isTraitor || target.isTraitor) {
             System.out.println("é um traidor");
             return;
         }
