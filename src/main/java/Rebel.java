@@ -35,8 +35,20 @@ public class Rebel {
             System.out.println("é um traidor");
             return;
         }
-        inventory.trade(itemsToSend, itemsToReceive);
-        target.inventory.trade(itemsToReceive, itemsToSend);
+
+        HashMap<Inventory.Items, Integer> myNewInventory = new HashMap<>();
+        HashMap<Inventory.Items, Integer> targetNewInventory = new HashMap<>();
+
+        try {
+            myNewInventory = inventory.trade(itemsToSend, itemsToReceive);
+            targetNewInventory = target.inventory.trade(itemsToReceive, itemsToSend);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            inventory.setInventory(myNewInventory);
+            target.inventory.setInventory(targetNewInventory);
+        }
     }
 
     @Override

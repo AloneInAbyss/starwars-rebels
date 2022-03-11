@@ -7,7 +7,7 @@ public class Inventory {
         this.items = items;
     }
 
-    public void trade(HashMap<Items, Integer> itemsToRemove, HashMap<Items, Integer> itemsToAdd) {
+    public HashMap<Items, Integer> trade(HashMap<Items, Integer> itemsToRemove, HashMap<Items, Integer> itemsToAdd) {
         // Novo inventário
         HashMap<Items, Integer> newInventory = new HashMap<>();
 
@@ -51,8 +51,13 @@ public class Inventory {
 
         // Se não houve falhas faz a operação
         if (!failure) {
-            this.items = newInventory;
+            return newInventory;
         }
+        throw new Error("Falha na transação");
+    }
+
+    public void setInventory(HashMap<Items, Integer> newInventory) {
+        this.items = newInventory;
     }
 
     @Override
