@@ -21,18 +21,18 @@ public class Inventory {
             // Verifica o valor em pontos a ser removido
             pointsToRemove = getPoints(itemsToRemove, pointsToRemove, itemToRemove);
 
-            for (Items inventoryItem : this.items.keySet()) {
+            for (Items inventoryItem : newInventory.keySet()) {
                 // Se o item existe na lista de remoção e no inventário atual...
                 if (itemToRemove == inventoryItem) {
                     // Verifica se as quantidades batem
-                    int oldQuantity = this.items.get(itemToRemove);
-                    int newValue = oldQuantity - itemsToRemove.get(itemToRemove);
+                    int previousQuantity = newInventory.get(itemToRemove);
+                    int newQuantity = previousQuantity - itemsToRemove.get(itemToRemove);
 
-                    if (newValue < 0) {
+                    if (newQuantity < 0) {
                         failure = true;
                     }
 
-                    newInventory.put(itemToRemove, newValue);
+                    newInventory.put(itemToRemove, newQuantity);
                 }
             }
         }
@@ -46,16 +46,16 @@ public class Inventory {
             for (Items inventoryItem : newInventory.keySet()) {
                 // Se o item existe na lista de recebimento e no inventário atual...
                 if (itemToAdd == inventoryItem) {
-                    int oldQuantity = newInventory.get(itemToAdd);
-                    int newValue = oldQuantity + itemsToAdd.get(itemToAdd);
-                    newInventory.put(itemToAdd, newValue);
+                    int previousQuantity = newInventory.get(itemToAdd);
+                    int newQuantity = previousQuantity + itemsToAdd.get(itemToAdd);
+                    newInventory.put(itemToAdd, newQuantity);
                     found = true;
                 }
             }
             // Se o item ainda não existe no inventário
             if (!found) {
-                int newValue = itemsToAdd.get(itemToAdd);
-                newInventory.put(itemToAdd, newValue);
+                int newQuantity = itemsToAdd.get(itemToAdd);
+                newInventory.put(itemToAdd, newQuantity);
             }
         }
 
