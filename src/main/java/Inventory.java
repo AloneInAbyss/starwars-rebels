@@ -21,6 +21,7 @@ public class Inventory {
             // Verifica o valor em pontos a ser removido
             pointsToRemove = getPoints(itemsToRemove, pointsToRemove, itemToRemove);
 
+            boolean found = false;
             for (Items inventoryItem : newInventory.keySet()) {
                 // Se o item existe na lista de remoção e no inventário atual...
                 if (itemToRemove == inventoryItem) {
@@ -33,7 +34,12 @@ public class Inventory {
                     }
 
                     newInventory.put(itemToRemove, newQuantity);
+                    found = true;
                 }
+            }
+            // Se o item não existe no inventário
+            if (!found) {
+                failure = true;
             }
         }
 

@@ -24,13 +24,11 @@ public class Main {
 
         // Criar Lista de Itens para receber
         HashMap<Inventory.Items, Integer> itemsToReceive = new HashMap<>();
-        itemsToReceive.put(Inventory.Items.FOOD, 2);
-        itemsToReceive.put(Inventory.Items.WATER, 5);
+        itemsToReceive.put(Inventory.Items.FOOD, 4);
 
         // Criar Lista de Itens para transferir
         HashMap<Inventory.Items, Integer> itemsToSend = new HashMap<>();
         itemsToSend.put(Inventory.Items.GUN, 1);
-        itemsToSend.put(Inventory.Items.WATER, 4);
 
         // Antes de negociar
         System.out.println(rebel1);
