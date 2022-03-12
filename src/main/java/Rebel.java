@@ -8,7 +8,6 @@ public class Rebel {
     private final Inventory inventory;
     private Boolean isTraitor = false;
     private int traitorReports = 0;
-    private static int traitorsCounter = 0;
 
     public Rebel(String name, String age, String gender, String location, Inventory inventory) {
         this.name = name;
@@ -18,15 +17,10 @@ public class Rebel {
         this.inventory = inventory;
     }
 
-    public void updateLocation(String location) {
-        this.location = location;
-    }
-
     public void markAsTraitor() {
         traitorReports++;
         if (traitorReports >= 3) {
             this.isTraitor = true;
-            traitorsCounter++;
         }
     }
 
